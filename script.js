@@ -47,7 +47,7 @@
 // let arr = [17, 28, 34, -10, -4, -2, 8, 15, 12];
 
 // function getSum(a, b) {
-//   return (a += b);
+//   return (a += b);   <-- тут краще просто повертати суму  return a + b;
 // }
 // let c = arr.reduce(getSum, 0);
 // document.write(c)
@@ -59,7 +59,7 @@
 // let arr = [17, 28, 34, -10, -4, -2, 8, 15, 12];
 
 // function getSum(result, b) {
-//   return (result += b);
+//   return (result += b);    <-- зауваження аналогічне до попереднього
 // }
 // function getMult(result, b) {
 //    return result*=b
@@ -104,7 +104,7 @@
 
 // let arr = [17, -28, 34, -10, -4, 2, 8, -15, 12];
 // arr.forEach((val,i,arr) => {
-//    if(val<0) return arr[i]=0
+//    if(val<0) return arr[i]=0      <-- не потрібен return
 // })
 // document.write(arr)
 
@@ -122,7 +122,7 @@
 
 // let prices = [1500,90,10,200,450,650,7,30,5000]
 // prices.forEach((val, i, arr) => {
-//    if(val<1000) arr[i]*=1.2
+//    if(val<1000) arr[i]*=1.2   <-- тут треба використатит else
 //    if(val>1000) arr[i]*=0.7
 // })
 // document.write(prices)
@@ -165,7 +165,7 @@
 // Задача 7. Розробити функцію, яка би для довільної кількості переданих символів визначала, кількість букв «а».
 
 // let letters = ['b', 'c', 'a', 's', 'a', 'x', 'a', 'z', 'a', 'a', 'w', 'a']
-// let c = letters.filter((val) => {
+// let c = letters.filter((val) => {        <-- треба би reduce
 //    let x = val.toUpperCase()
 //    return x==='A'
 // })
@@ -192,7 +192,7 @@
 //    } else {
 //       return prev
 //    }
-// }, numbers[0])
+// }, numbers[0])   <-- можна цього не писати, воно таке за замовлчуванням
 // document.write(c)
 
 // другий спосіб
@@ -238,7 +238,7 @@
 // let prices = [1500,90,10,200,450,650,70,30,5000]
 
 // prices.forEach((val,i,arr) => {
-//    if (val >= 1000) return arr[i] *= 0.8
+//    if (val >= 1000) return arr[i] *= 0.8   <-- Використати else
 //    if(val < 1000) return arr[i]*=0.95
 // })
 
@@ -251,7 +251,7 @@
 // let arr = [1990, 2005, 2002, 1980, 2000, 2001];
 
 // let c = arr.filter((val, i, arr) => {
-//   if (val >= 1996) return arr[i];
+//   if (val >= 1996) return arr[i];    <-- краще повертати логічний вираз (просто повернути умову, як у наступному завданні)
 // });
 // console.log(c);
 
@@ -279,7 +279,7 @@
 // let prices = [1500, 1190, 1110, 2001, 1450, 1650, 70, 30, 5000];
 
 // let c = prices.filter((val) => {
-//   if (val >= 1000 && val <= 2000) return val;
+//   if (val >= 1000 && val <= 2000) return val;    <-- повернути умову
 // });
 // console.log(c);
 
@@ -295,7 +295,7 @@
 // let carNum = ["AO 3333 AP", "AC 2233 BC", "AO 1516 BP"];
 // let newNum = carNum.filter((val, i, arr) => {
 //    // if(arr[0][0] === 'A' && arr[0][arr.length-1] === 'P') return arr[i]// TODO чому такий запис не працює?
-//   if (val[0] === "A" && val[val.length - 1] === "P") return val;
+//   if (val[0] === "A" && val[val.length - 1] === "P") return val;    <-- повернути умову
 // });
 // console.log(newNum);
 

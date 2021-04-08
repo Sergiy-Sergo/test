@@ -5,8 +5,95 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <script>
+    // ---------------------------------------------------------
+      // Задача 1. Користувач задає рік народження. Визначити кількість років користувача
+       function getAge() {
+          const userYear = parseFloat(document.getElementById('userYear').value)
+          const result = document.getElementById('result').value = 2021 - userYear
+       }
+       function reset() {
+         userYear.value = ''
+         result.value = ''
+       }
+      // ---------------------------------------------------------
+      // Задача 2. Конвертер валют.
+      function convert() {
+         const sumInUah = parseFloat(document.querySelector("#sumInUah").value)
+         const sumInEur = document.querySelector("#sumInEur")
+         const sumInUsd = document.querySelector("#sumInUsd")
+         sumInEur.value = sumInUah * 32.90
+         sumInUsd.value = sumInUah * 27.80
+         
+      }
+      // ---------------------------------------------------------
+      // Задача 3. Розробити калькуляртор
+      function getSumm(params) {
+         const firstNumber = parseFloat(document.getElementById("firstNumber").value)
+         const secondNumber = parseFloat(document.querySelector("#secondNumber").value)
+         const calcResult = document.querySelector("#calcResult")
+         calcResult.value = firstNumber + secondNumber
+      }
+      function getSubtract(params) {
+         const firstNumber = parseFloat(document.getElementById("firstNumber").value)
+         const secondNumber = parseFloat(document.querySelector("#secondNumber").value)
+         const calcResult = document.querySelector("#calcResult")
+         calcResult.value = firstNumber - secondNumber
+      }   
+      function getMultiply(params) {
+         const firstNumber = parseFloat(document.getElementById("firstNumber").value)
+         const secondNumber = parseFloat(document.querySelector("#secondNumber").value)
+         const calcResult = document.querySelector("#calcResult")
+         calcResult.value = firstNumber * secondNumber
+      }
+      function getDivision(params) {
+         const firstNumber = parseFloat(document.getElementById("firstNumber").value)
+         const secondNumber = parseFloat(document.querySelector("#secondNumber").value)
+         const calcResult = document.querySelector("#calcResult")
+         calcResult.value = firstNumber / secondNumber
+      }
+      // ---------------------------------------------------------
+   </script>
 </head>
 <body>
-   <script src="script.js"></script>
+   <!-- ------------------------------------------------------- -->
+   <p>Задача 1. Користувач задає рік народження. Визначити кількість років користувача</p>
+   <label>
+      Рік народження<input type="text" name="" placeholder="1990" id="userYear" value="">
+   <br/>
+      <button id="btn_result" onclick="getAge()">Вирахувати</button>
+   <br>
+      Ваш вік<input type="text" name="" id="result" value="">
+      <button type="reset" id="reset" onclick="reset()">Reset</button>
+   </label>
+   <!-- ------------------------------------------------------- -->
+   <p>Задача 2. Конвертер валют.</p>
+   <label>
+      Сумма в гривнях <input type="text" id="sumInUah" placeholder="0" value=""> 
+      <br/>
+      <button onclick="convert()">Конвертувати</button>
+      <hr/>
+      Сумма в євро <input type="text" value="" name="" id="sumInEur" placeholder="0">
+      <br/>
+      Сумма в доларах <input type="text" value="" name="" id="sumInUsd" placeholder="0">
+   </label>
+   <!-- ------------------------------------------------------- -->
+   <p>Задача 3. Розробити калькуляртор</p>
+   <div>
+      <label>
+         First number <input type="text" id="firstNumber" placeholder="0"> 
+      </label>
+      <br/>
+      <label>
+         Second number <input type="text" id="secondNumber" placeholder="0"> 
+      </label>
+      <br/>  
+      <button onclick="getSumm()">Додати</button>
+      <button onclick="getSubtract()">Відняти</button>
+      <button onclick="getMultiply()">Помножити</button>
+      <button onclick="getDivision()">Поділити</button>
+      <hr/>
+      Результат <input type="text" id="calcResult" placeholder="0">
+   </div>
 </body>
 </html>

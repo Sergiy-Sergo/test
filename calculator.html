@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      window.onload = function () {
+        document.querySelector(".btn").addEventListener("click", btnClick);
+      };
+      function btnClick(event) {
+        const screen = document.getElementById("screen");
+        if (event.target.tagName === "BUTTON")
+          screen.value = screen.value + event.target.innerText;
+        else return false;
+      }
+      function equal() {
+        const screen = document.getElementById("screen");
+        if (screen.value === '') {
+          return screen.value = ''
+        } else 
+        if(screen){
+          screen.value = eval(screen.value);
+        }
+      }
+      function deleteSymbol() {
+        const screen = document.getElementById("screen");
+        screen.value = "";
+      }
+    </script>
+    <style>
+      .wrapper {
+        width: 150px;
+        height: 180px;
+        background-color: rgb(54, 151, 155);
+        text-align: center;
+      }
+      #screen {
+        width: 80%;
+        margin-top: 15px;
+      }
+      .btn {
+        margin: 10px;
+      }
+      .btn div {
+        margin: 3px;
+      }
+      .bottom_div {
+        display: inline-block;
+        position: relative;
+        left: -28px;
+      }
+      .bottom_div_2{
+        display: inline-block;
+        position: relative;
+        top: -35px;
+        left: 30px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="screen">
+        <input type="text" id="screen" />
+      </div>
+      <div class="btn">
+        <div>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>+</button>
+        </div>
+        <div>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>-</button>
+        </div>
+        <div>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>*</button>
+        </div>
+        <div class="bottom_div">
+          <button>0</button>
+          <button>/</button>
+        </div>
+      </div>
+      <div class="bottom_div_2">
+        <button onclick="deleteSymbol()">C</button>
+        <button onclick="equal()">&#61;</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class Roulette{
+      constructor(arr){
+        this.arr = arr
+      }
+      render(containerId){
+        const container = document.getElementById(containerId)
+        this.div = document.createElement('div')
+        this.btn = document.createElement('button')
+        this.btn.innerText = 'Rotate'
+        this.btn.onclick = this.btnClick.bind(this)
+        this.div.appendChild(this.btn)
+        container.appendChild(this.div)
+        this.div1 = document.createElement('div')
+        const span = document.createElement('span')
+        span.innerText = 'Score: '
+        this.scoreSpan = document.createElement('span')
+        this.div1.appendChild(span)
+        this.div1.appendChild(this.scoreSpan)
+        container.appendChild(this.div1)
+      }
+      btnClick(){
+        let arrIndex = Math.floor(Math.random() * (this.arr.length))
+        let arrNum = this.arr[arrIndex]
+        this.scoreSpan.innerText = arrNum
+      }
+    }
+    // window.onload = function(){
+    //   let roulette = new Roulette([10,5,2,9,11,45,62])
+    //   roulette.render('container')
+    // }
+    class NewRoulette extends Roulette{
+      constructor(arr, count){
+        super(arr)
+        this.count = count
+      }
+      newBtnClick(){
+        let sum = 0
+        for (let i = 0; i < this.count; i++) {
+          let arrIndex = Math.floor(Math.random() * (this.arr.length))
+          sum += this.arr[arrIndex]
+          this.scoreSpan.innerText = sum/this.count
+          console.log(sum);
+        }
+        
+      }
+    }
+    window.onload = function(){
+      let newRoulette = new NewRoulette([11,15,21,33,1,7,14],3)
+      newRoulette.render('container')
+      newRoulette.newBtnClick()
+    }
+  </script>
+</head>
+<body>
+  <div id="container">
+
+  </div>
+  
+</body>
+</html>

@@ -14,20 +14,18 @@
     }
   </style>
   <script>
-    //-------------ДОРОБИТИ(Сніг)------------- 
     class SnowFlake{
       constructor(image, startPosition){
         this.image = image
         this.position = 0
         this.startPosition = startPosition
       }
-      
       imgMove(){
-        let start = 0
-        let timer = setInterval(()=>{
-          let timePassed = start++;
-          this.img.style.top = timePassed - 1 + 'px';
-          if (timePassed > 800) clearInterval(timer);
+        this.position = 0
+        const timer = setInterval(()=>{
+          let timePassed = this.position++;
+          this.img.style.top = timePassed + 1 + 'px';
+          if (timePassed > 800) this.position = 0 
         },15)
       }
 

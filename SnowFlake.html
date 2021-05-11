@@ -20,7 +20,6 @@
         this.position = 0
       }
       imgMove(){
-        this.position = 0
         const timer = setInterval(()=>{
           let timePassed = this.position++;
           this.img.style.top = timePassed + 1 + 'px';
@@ -30,16 +29,12 @@
 
       render(containerId, count){
         const container = document.getElementById(containerId)
-        this.img = document.createElement('img')
-        this.img.setAttribute('src',this.image)   
-        this.img.style.top = ('top','10px')
-        container.appendChild(this.img)
         for (let i = 0; i < count; i++) {
           this.hight = (1 + Math.floor(Math.random()*(150)))
-          this.img[i] = document.createElement('img')
-          this.img[i].setAttribute('src',this.image) 
-          this.img[i].style.top = ('top', this.hight + 'px')
-          container.appendChild(this.img[i])
+          this.img = document.createElement('img')
+          this.img.setAttribute('src',this.image) 
+          this.img.style.top = this.hight + 'px'
+          container.appendChild(this.img)
         }
         this.imgMove()
       }

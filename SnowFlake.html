@@ -34,13 +34,13 @@
         this.img.setAttribute('src',this.image)   
         this.img.setAttribute('top','0px')
         container.appendChild(this.img)
+        this.imgMove()
       }
     }
     window.onload = function(){
       let img = 'https://png.clipart.me/istock/previews/7192/7192158-single-snowflake-vector-design.jpg'
       const snow = new SnowFlake(img)
       snow.render('container')
-      snow.imgMove()
     }
   </script>
 </head>

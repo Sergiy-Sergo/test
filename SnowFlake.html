@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 50px;
+      height: 50px;
+      position: relative;
+
+    }
+  </style>
+  <script>
+    //-------------ДОРОБИТИ(Сніг)------------- 
+    class SnowFlake{
+      constructor(image, startPosition){
+        this.image = image
+        this.position = 0
+        this.startPosition = startPosition
+      }
+      
+      imgMove(){
+        let start = 0
+        let timer = setInterval(()=>{
+          let timePassed = start++;
+          this.img.style.top = timePassed - 1 + 'px';
+          if (timePassed > 800) clearInterval(timer);
+        },15)
+      }
+
+      render(containerId){
+        const container = document.getElementById(containerId)
+        this.img = document.createElement('img')
+        this.img.setAttribute('src',this.image)   
+        this.img.setAttribute('top','0px')
+        container.appendChild(this.img)
+      }
+    }
+    window.onload = function(){
+      let img = 'https://png.clipart.me/istock/previews/7192/7192158-single-snowflake-vector-design.jpg'
+      const snow = new SnowFlake(img,0)
+      snow.render('container')
+      snow.imgMove()
+    }
+  </script>
+</head>
+<body>
+  <div id="container"></div>
+  
+</body>
+</html>

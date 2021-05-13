@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        padding: 5px;
+        width: 350px;
+      }
+    </style>
+    <script>
+      class ArithmeticOperationTrainer {
+        constructor(min, max) {
+          this.operation = 1 + Math.floor(Math.random() * 4);
+          this.min = min;
+          this.max = max;
+        }
+        render(id) {
+          const crEl = document.createElement.bind(document);
+          const container = document.querySelector(`#${id}`);
+          // first number div
+          let div = crEl("div");
+          let label = crEl("label");
+          label.innerText = "First number ";
+          this.firstNumberInput = crEl("input");
+          this.firstNumberInput.setAttribute("type", "text");
+          this.firstNumberInput.value = this.getRandomNumber(
+            this.min,
+            this.max
+          );
+          div.appendChild(label);
+          div.appendChild(this.firstNumberInput);
+          container.appendChild(div);
+
+          // operation div
+          div = crEl("div");
+          let span = crEl("span");
+          span.innerText = "Operation: ";
+          this.operationSpan = crEl("span");
+          this.operationSpan.innerText = this.getOperation(this.operation);
+          div.appendChild(span);
+          div.appendChild(this.operationSpan);
+          container.appendChild(div);
+
+          // second number div
+          div = crEl("div");
+          label = crEl("label");
+          label.innerText = "Second number ";
+          this.secondNumberInput = crEl("input");
+          this.secondNumberInput.setAttribute("type", "text");
+          this.secondNumberInput.value = this.getRandomNumber(
+            this.min,
+            this.max
+          );
+          div.appendChild(label);
+          div.appendChild(this.secondNumberInput);
+          container.appendChild(div);
+
+          // hr
+          const hr = crEl("hr");
+          container.appendChild(hr);
+
+          // your answer div
+          div = crEl("div");
+          label = crEl("label");
+          label.innerText = "Your answer :  ";
+          this.userAnswerInput = crEl("input");
+          this.userAnswerInput.setAttribute("type", "text");
+          div.appendChild(label);
+          div.appendChild(this.userAnswerInput);
+          container.appendChild(div);
+
+          // Check button
+          div = crEl("div");
+          this.resultButton = crEl("button");
+          this.resultButton.innerText = "Check";
+          this.resultButton.onclick = this.getResult.bind(this);
+          div.appendChild(this.resultButton);
+          container.appendChild(div);
+
+          // result div
+          div = crEl("div");
+          span = crEl("span");
+          span.innerText = "Result: ";
+          this.resultSpan = crEl("span");
+          this.resultSpan.innerText = '?'
+          div.appendChild(span);
+          div.appendChild(this.resultSpan);
+          container.appendChild(div);
+          this.getWriteAnswer()
+        }
+        getWriteAnswer(){
+         this.op = this.getOperation(this.operation);
+         this.writeAnswer = eval(
+            `${this.firstNumberInput.value} ${this.op} ${this.secondNumberInput.value}`
+          );
+          console.log(this.writeAnswer);
+        }
+        getResult() {
+
+          if (this.userAnswerInput.value == this.writeAnswer) {
+            this.resultSpan.innerText = "OK";
+          } else {
+            this.resultSpan.innerText = "NO";
+          }
+        }
+        getRandomNumber(min, max) {
+          return (
+            this.min + Math.floor(Math.random() * (this.max - this.min + 1))
+          );
+        }
+        getOperation(operation) {
+          switch (this.operation) {
+            case 1:
+              return "+";
+
+            case 2:
+              return "-";
+
+            case 3:
+              return "/";
+
+            case 4:
+              return "*";
+
+            default:
+              break;
+          }
+        }
+      }
+      window.onload = function () {
+        const r = new ArithmeticOperationTrainer(2, 10);
+        r.render("container");
+        
+      };
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
